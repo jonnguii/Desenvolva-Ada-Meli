@@ -6,55 +6,14 @@ import java.util.Comparator;
 import java.util.Scanner;
 import java.util.TreeSet;
 
-class Task {
-    Scanner scanner = new Scanner(System.in);
 
-    private String descricao;
-    private LocalDate date;
-    private boolean concluido;
-
-
-    public Task(String descricao, LocalDate date, boolean concluido) {
-        this.descricao = descricao;
-        this.date = date;
-        this.concluido = concluido;
-
-    }
-
-    public String getDescricao() {
-
-        return descricao;
-    }
-
-
-    public LocalDate getDate() {
-
-        return date;
-    }
-
-
-    public boolean isConcluido() {
-        return concluido;
-    }
-
-
-    @Override
-    public String toString() {
-        String status = concluido ? "sim" : "não";
-        return ("Tarefa: " + descricao + " | Data do evento: " + date + " | Concluida? " + status + "\n");
-
-    }
-}
-
+//DESAFIO 1
+//Liste todos as Tarefas ordenados por data e agrupados por conclusão.
+//Busque por titulo e data
 
 public class Application {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
-
-        //DESAFIO 1
-        //Liste todos as Tarefas ordenados por data e agrupados por conclusão.
-        //Busque por titulo e data
 
 
         ArrayList<Task> todolist = new ArrayList<>();
@@ -80,7 +39,7 @@ public class Application {
         //ORDENAÇÃO POR NAO CONCLUIDAS E CONCLUIDAS
 
 
-//        final var comparator = new Comparator<Task>() {
+//        final var oldComparator = new Comparator<Task>() {
 //            @Override
 //            public int compare(Task t1, Task t2) {
 //                int status = Boolean.compare(t2.isConcluido(), t1.isConcluido());
@@ -129,4 +88,42 @@ public class Application {
 }
 
 
+class Task {
+    Scanner scanner = new Scanner(System.in);
 
+    private String descricao;
+    private LocalDate date;
+    private boolean concluido;
+
+
+    public Task(String descricao, LocalDate date, boolean concluido) {
+        this.descricao = descricao;
+        this.date = date;
+        this.concluido = concluido;
+
+    }
+
+    public String getDescricao() {
+
+        return descricao;
+    }
+
+
+    public LocalDate getDate() {
+
+        return date;
+    }
+
+
+    public boolean isConcluido() {
+        return concluido;
+    }
+
+
+    @Override
+    public String toString() {
+        String status = concluido ? "sim" : "não";
+        return ("Tarefa: " + descricao + " | Data do evento: " + date + " | Concluida? " + status + "\n");
+
+    }
+}
