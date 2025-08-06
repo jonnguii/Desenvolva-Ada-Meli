@@ -4,9 +4,6 @@ package aula06.Desafio2;
 //Além do Usuario "dono" da Tarefa, permita adicionar convidados à Tarefa, ou seja, outros Usuarios
 //Verifique se há conflitos na agenda do Usuario principal ou dos convidados. Caso haja, lance uma exceção, mas sem encerrar o programa.
 
-import org.w3c.dom.ls.LSOutput;
-
-import java.io.FilterOutputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,24 +13,23 @@ public class Application {
     public static void main(String[] args) {
 
 
-        User joao = new User("joao", "joao@email.com");
-        User natalia = new User("natalia", "nat@email.com");
+        User Joao = new User("Joao", "joao@email.com");
+        User Natalia = new User("Natalia", "nat@email.com");
         User Pedro = new User("Pedro", "pedro@email.com");
         User Jesse = new User("Jesse", "jesse@email.com");
 
-        Task task1 = new Task("Comprar creme pra cabelo", LocalDate.of(2025, 7, 21), false, joao);
-        Task task2 = new Task("Pagar wifi", LocalDate.of(2025, 7, 21), false, joao);
-        Task task3 = new Task("Buscar encomenda", LocalDate.of(2025, 7, 22), false, joao);
-        Task task4 = new Task("Correr", LocalDate.of(2025, 7, 22), false, natalia);
-
+        Task task1 = new Task("Comprar creme pra cabelo", LocalDate.of(2025, 7, 21), false, Joao);
+        Task task2 = new Task("Pagar wifi", LocalDate.of(2025, 7, 21), false, Jesse);
+        Task task3 = new Task("Buscar encomenda", LocalDate.of(2025, 7, 22), false, Joao);
+        Task task4 = new Task("Correr", LocalDate.of(2025, 7, 22), false, Natalia);
 
 
         try {
-            System.out.println("Criando task 1 do usuario " + joao.getNome() + "...");
-            joao.adicionarTask(task1);
+            System.out.println("Criando task 1 do usuario " + Joao.getNome() + "...");
+            Joao.adicionarTask(task1);
 
-            System.out.println("Convidando usuario pra task 1 de " + joao.getNome() + "...");
-            task1.adicionarConvidados(natalia);
+            System.out.println("Convidando usuario pra task 1 de " + Joao.getNome() + "...");
+            task1.adicionarConvidados(Natalia);
         } catch (ConflitoTarefaException c) {
             System.out.println(">>> Erro: " + c.getMessage());
         }
@@ -42,11 +38,11 @@ public class Application {
         System.out.println("---------------------------------------------------------------------");
 
         try {
-            System.out.println("Criando task 2 do usuario " + natalia.getNome() + "...");
-            natalia.adicionarTask(task2);
+            System.out.println("Criando task 2 do usuario " + Natalia.getNome() + "...");
+            Natalia.adicionarTask(task2);
 
-            System.out.println("Convidando usuario pra task 2 de " + natalia.getNome() + "...");
-            task2.adicionarConvidados(joao);
+            System.out.println("Convidando usuario pra task 2 de " + Natalia.getNome() + "...");
+            task2.adicionarConvidados(Joao);
 
         } catch (ConflitoTarefaException c) {
             System.out.println("Erro: " + c.getMessage());
@@ -54,13 +50,13 @@ public class Application {
 
         System.out.println("---------------------------------------------------------------------");
         try {
-        System.out.println("# Criando task2 do Jesse...");
-        Jesse.adicionarTask(task2);
-        System.out.println("# Convidando joao para task2...");
-        task2.adicionarConvidados(joao);
-    } catch (ConflitoTarefaException e) {
-        System.out.println(">> Erro: " + e.getMessage());
-    }
+            System.out.println("# Criando task2 do usuario Jesse...");
+            Jesse.adicionarTask(task2);
+            System.out.println("# Convidando joao para task2...");
+            task2.adicionarConvidados(Joao);
+        } catch (ConflitoTarefaException c) {
+            System.out.println(">> Erro: " + c.getMessage());
+        }
 
     }
 }
@@ -100,10 +96,11 @@ class Task {
         return descricao;
     }
 
+
     @Override
     public String toString() {
         String status = concluido ? "sim" : "não";
-        return "Tarefa: " + descricao + " | " + "Data: " + date + " | " + "Concluida? " + status + " | " + "Dono da tarefa: " + dono.getNome() + " email: " + dono.getEmail() + " | Convidados: " + convidados;
+        return "Tarefa: " + descricao + " | " + "Data: " + date + " | " + "Concluida? " + status + " | " + "Dono da tarefa: " + dono.getNome() + " | email: " + dono.getEmail() + " | Convidados: " + convidados;
     }
 }
 
@@ -134,7 +131,7 @@ class User {
                     tarefaNova.convidados.remove(this);
                     System.out.println("Convidado removido por conflito!");
                 }
-                throw new ConflitoTarefaException("Conflito nas tarefas do " + this + ". Entre: " + t.getDescricao() + " - não concluída e nova tarefa: " + tarefaNova.getDescricao());
+                throw new ConflitoTarefaException("Conflito nas tarefas do " + this + ". Entre: " + t.getDescricao() + " (" + t.isConcluido() + " concluída)" + " data: " + tarefaNova.getDate() + " e nova tarefa: " + tarefaNova.getDescricao() + " (" + tarefaNova.isConcluido() + " concluída) " + "data: " + tarefaNova.getDate());
 
             }
 
@@ -178,15 +175,11 @@ class User {
 
     @Override
     public String toString() {
-        return "User: " + nome + ", email: " + email;
+
+        return "Usuario: " + nome + ", email: " + email;
     }
 }
 
-class ListarConflitoException extends RuntimeException {
-    public ListarConflitoException(String mensagemFormatada) {
-        super(mensagemFormatada);
-    }
-}
 
 class ConflitoTarefaException extends RuntimeException {
 

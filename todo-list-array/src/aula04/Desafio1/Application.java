@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.TreeSet;
 
 class Task {
+    Scanner scanner = new Scanner(System.in);
 
     private String descricao;
     private LocalDate date;
@@ -104,25 +105,26 @@ public class Application {
 //        BUSCA POR DATA
         System.out.println("-------- INSIRA A DATA PARA BUSCA ex: 0000y-00m-00d--------");
         LocalDate dateBusca = LocalDate.parse(scanner.next());
-        System.out.println("-------- TAREFAS DATAS EM: " + dateBusca + " --------");
+        System.out.println("-------- TAREFAS DATADAS EM " + dateBusca + ": --------");
         for (Task t : todolist) {
             if (dateBusca.equals(t.getDate())) {
                 System.out.println(t);
             }
         }
 
+
         //BUSCA POR NOME
-        System.out.println("-------- INSIRA O NOME DA TAREFA PARA BUSCA --------");
-        String descBusca = scanner.nextLine();
+        String descBusca = "fazer café";
+        System.out.println("-------- BUSCA POR DESCRIÇÃO: " + descBusca + " --------");
         for (Task t : todolist) {
             if (descBusca.equalsIgnoreCase(t.getDescricao())) {
                 System.out.println(t);
             }
         }
-        scanner.close();
 
 
     }
+
 
 }
 
