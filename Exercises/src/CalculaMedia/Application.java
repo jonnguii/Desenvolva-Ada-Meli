@@ -1,4 +1,4 @@
-package aula05.Exercicios.CalculaMedia;
+package CalculaMedia;
 
 public class Application {
     public static void main(String[] args) {

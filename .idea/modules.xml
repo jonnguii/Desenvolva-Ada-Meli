@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Desenvolva+.iml" filepath="$PROJECT_DIR$/.idea/Desenvolva+.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exercises/Exercises.iml" filepath="$PROJECT_DIR$/Exercises/Exercises.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exercises2/Exercises2.iml" filepath="$PROJECT_DIR$/Exercises2/Exercises2.iml" />
       <module fileurl="file://$PROJECT_DIR$/FirstClassAda/FirstClassAda.iml" filepath="$PROJECT_DIR$/FirstClassAda/FirstClassAda.iml" />
+      <module fileurl="file://$PROJECT_DIR$/poo-biblioteca/poo-biblioteca.iml" filepath="$PROJECT_DIR$/poo-biblioteca/poo-biblioteca.iml" />
       <module fileurl="file://$PROJECT_DIR$/todo-list-array/todo-list-array.iml" filepath="$PROJECT_DIR$/todo-list-array/todo-list-array.iml" />
     </modules>
   </component>

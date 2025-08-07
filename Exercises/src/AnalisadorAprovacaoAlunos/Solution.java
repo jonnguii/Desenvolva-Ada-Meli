@@ -1,4 +1,4 @@
-package aula05.Exercicios.AnalisadorAprovacaoAlunos;
+package AnalisadorAprovacaoAlunos;
 
 public class Solution {
     public static double calcularMediaFinal(String matricula, double nota1, double nota2, double nota_trabalho) {

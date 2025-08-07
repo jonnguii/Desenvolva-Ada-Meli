@@ -1,4 +1,4 @@
-package aula05.Exercicios.AnalisadorAprovacaoAlunos;
+package AnalisadorAprovacaoAlunos;
 
 
 public class Application {

@@ -1,4 +1,4 @@
-package aula05.Exercicios.SistemaListaProdutos;
+package SistemaListaProdutos;
 
 import java.util.ArrayList;
 import java.util.List;

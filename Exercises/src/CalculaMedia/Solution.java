@@ -1,4 +1,4 @@
-package aula05.Exercicios.CalculaMedia;
+package CalculaMedia;
 
 public class Solution {
 

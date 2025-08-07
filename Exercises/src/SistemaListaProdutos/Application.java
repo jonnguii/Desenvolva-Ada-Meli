@@ -1,4 +1,4 @@
-package aula05.Exercicios.SistemaListaProdutos;
+package SistemaListaProdutos;
 
 public class Application {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package aula05.Exercicios.AtualizarSenha;
+package AtualizarSenha;
 
     import java.util.ArrayList;
     import java.util.List;
